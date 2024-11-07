@@ -34,7 +34,9 @@ def create_user(data: UserCreate) -> User | None:
         try:
             user = User(
                 username=data.username,
-                hashed_password=PasswordManager.get_password_hash(data.password)
+                hashed_password=PasswordManager.get_password_hash(data.password),
+                name=data.name,
+                surname=data.surname
             )
             db_session.add(user)
         except Exception as e:

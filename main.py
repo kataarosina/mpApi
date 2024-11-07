@@ -7,15 +7,18 @@ from auth.routes import router as auth_router
 from transactions.routes import categories_router
 from transactions.routes import transactions_router
 from transactions.routes import types_router
+from people.routes import people_router
 
 # Это список разрешённых адресов сайтов для CORS, которые могут делать запросы
 # к нашему API. Запросы с адресов не указанных в origins будут отклонены. 
 origins = [
+    "*",
     "http://localhost",
     "http://localhost:8080",
+    "http://*"
 ]
 
-app = FastAPI(title='Coins')
+app = FastAPI(title='MPapp')
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -30,6 +33,7 @@ app.include_router(types_router)
 app.include_router(categories_router)
 app.include_router(transactions_router)
 app.include_router(departments_router)
+app.include_router(people_router)
 
 
 @app.get("/")

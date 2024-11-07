@@ -9,6 +9,8 @@ class UserCreate(Base):
 
     username: str
     password: str
+    name: str
+    surname: str
 
 
 class User(Base):
@@ -17,13 +19,22 @@ class User(Base):
     username: str
     hashed_password: bytes
     is_active: bool
+    name: str
+    surname: str
+
+class UserCreateDTO(BaseModel):
+    
+    username: str
+    hashed_password: bytes
+    is_active: bool
+    name: str
+    surname: str
 
 
 class Token(BaseModel):
-
+    
     access_token: str
     token_type: str
-
 
 class TokenData(BaseModel):
 

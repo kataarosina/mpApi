@@ -10,6 +10,7 @@ from auth.utils import authenticate, create_access_token, get_current_active_use
 from auth.dtos import User
 from core.database.session import DBSession, create_db_session
 from core.config import Config
+from sqlalchemy import select
 
 router = APIRouter(
     prefix='/auth',
@@ -43,3 +44,15 @@ async def read_users_me(
     current_user: Annotated[User, Depends(get_current_active_user)],
 ):
     return current_user
+
+
+# @router.get('/list', response_model=list[UserDTO])
+# async def get_users(
+#         current_user: Annotated[User, Depends(get_current_active_user)],
+#         db_session: DBSession = Depends(create_db_session)
+# ) -> list[User]:
+#     smth = select(User)
+#     user_users = db_session.scalars(smth).all()
+#     return user_users
+
+

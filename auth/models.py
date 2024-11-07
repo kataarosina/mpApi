@@ -13,6 +13,8 @@ class User(Base):
     username: Mapped[str] = mapped_column(unique=True, nullable=False)
     hashed_password: Mapped[str] = mapped_column(nullable=False)
     is_active: Mapped[bool] = mapped_column(default=True)
+    name: Mapped[str] = mapped_column(unique=False, nullable=True)
+    surname: Mapped[str] = mapped_column(unique=False, nullable=True)
 
     def __repr__(self):
         return f'User: {self.username}. Active: {self.is_active}'

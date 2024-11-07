@@ -33,6 +33,8 @@ from transactions.models import TransactionType
 from transactions.models import TransactionCategory
 from transactions.models import Transaction
 from departments.models import Department
+from people.models import Person
+
 
 target_metadata = Base.metadata
 

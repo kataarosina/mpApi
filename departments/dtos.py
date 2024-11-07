@@ -1,16 +1,6 @@
 from pydantic import BaseModel
 
 
-#from currencies.dtos import CurrencyDTO
-
-
-#     val id: Int,
-#     val name: String?,
-#     val description: String?,
-#     val imageLink: String?,
-#     val quantityOfWorkers: Int?,
-#     //val workers: List<String>?
-
 class DepartmentCreateDTO(BaseModel):
     name: str
     description: str
